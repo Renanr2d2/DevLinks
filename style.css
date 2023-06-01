@@ -45,9 +45,9 @@ body {
     background-image: url(); (linkando a imagem)
     background-repeat: no-repeat; (opção para não repetir a imagem)
     background-position: top center; (posicionando a imagem)
-    background-size: cover; (cobrindo todo o body com a imagem)
+    background-size: auto; (cobrindo toda a área disponível com a imagem, mesmo que fique distorcida)
 */  
-    background: var(--bg-url) no-repeat top center/cover;
+    background: var(--bg-url) no-repeat top center/auto;
 }
 
 #container {
