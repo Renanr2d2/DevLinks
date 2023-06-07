@@ -47,12 +47,14 @@ body {
     background-position: top center; (posicionando a imagem)
     background-size: auto; (cobrindo toda a área disponível com a imagem, mesmo que fique distorcida)
 */  
-    background: var(--bg-url) no-repeat top center/auto;
+    background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh;
 }
 
 #container {
     height: 712px;
-    width: 360px;
+    width: 100%;
+    max-width: 588px;
     margin: 56px auto auto;
     padding: 0 24px;
 }
@@ -96,11 +98,16 @@ body {
     border: 0;
     background: var(--switch-bg-url) no-repeat center #ffffff;
     border-radius: 50%;
+
+    animation: slide-out 0.2s;
+}
+
+#switch button:hover {
+    outline: 8px solid var(--bg-links-hover);
 }
 
 .light #switch button {
-    right: 0;
-    left: initial;
+    animation: slide-in 0.2s forwards;
 } 
 
 #switch span {
@@ -183,4 +190,36 @@ footer p {
     justify-content: center;
     margin: auto;
     gap: 5px;
+}
+
+/* media queries */
+
+@media (min-width: 700px) {
+    :root {
+        --bg-url: url(./assets/bg-desktop-dark.jpg);
+    }
+
+    .light {
+        --bg-url: url(./assets/bg-desktop-light.jpg);
+    }
+}
+
+/* keyframe */
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
+    }
 }
